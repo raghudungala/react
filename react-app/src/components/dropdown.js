@@ -20,7 +20,7 @@ const countries = [
 
 export default function DropDown() {
   const [selectedCountry, setSelectedCountry] = useState("");
-  
+
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
   };
@@ -38,11 +38,13 @@ export default function DropDown() {
 
       {selectedCountry && (
         <select>
-          {countries.find((country) => country.value === selectedCountry).cities.map((city, i) => (
-            <option key={i} value={city}>
-              {city}
-            </option>
-          ))}
+          {countries
+            .find((country) => country.value === selectedCountry)
+            .cities.map((city, i) => (
+              <option key={i} value={city}>
+                {city}
+              </option>
+            ))}
         </select>
       )}
     </div>
